@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MISTER — Report Center</title>
+
+  <meta
+    name="description"
+    content="MISTER Report Management Platform"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- TOP NAVBAR -->
+  <header class="navbar">
+
+    <a href="#home" class="brand" onclick="showPage('home')">
+      <span class="brand-mark">M</span>
+      <span>MISTER</span>
+    </a>
+
+    <div class="nav-right">
+
+      <span class="status-pill">
+        <span class="status-dot"></span>
+        SYSTEM ONLINE
+      </span>
+
+      <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="Open menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- OVERLAY MENU -->
+  <div
+    id="menuOverlay"
+    class="menu-overlay"
+    onclick="toggleMenu()"
+  ></div>
+
+
+  <!-- SIDE MENU -->
+  <aside id="sideMenu" class="side-menu">
+
+    <div class="menu-header">
+      <div>
+        <small>NAVIGATION</small>
+        <h2>MISTER</h2>
+      </div>
+
+      <button onclick="toggleMenu()">×</button>
+    </div>
+
+
+    <nav class="menu-links">
+
+      <a href="#home" onclick="showPage('home')">
+        <span>⌂</span>
+        Home
+      </a>
+
+      <a href="#dashboard" onclick="showPage('dashboard')">
+        <span>▦</span>
+        Dashboard
+      </a>
+
+      <a href="#about" onclick="showPage('about')">
+        <span>○</span>
+        About
+      </a>
+
+      <a href="#faq" onclick="showPage('faq')">
+        <span>?</span>
+        FAQ
+      </a>
+
+      <a href="#bantexts" onclick="showPage('bantexts')">
+        <span>!</span>
+        BAN TEXTS
+      </a>
+
+      <a href="#contact" onclick="showPage('contact')">
+        <span>✉</span>
+        Contact
+      </a>
+
+    </nav>
+
+
+    <div class="menu-bottom">
+
+      <button class="owner-link" onclick="openOwner()">
+        <span>◆</span>
+        Owner Access
+      </button>
+
+      <small>
+        MISTER Report Center
+      </small>
+
+    </div>
+
+  </aside>
+
+
+  <!-- MAIN -->
+  <main>
+
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+
+      <div class="hero">
+
+        <div class="hero-badge">
+          REPORT MANAGEMENT PLATFORM
+        </div>
+
+        <h1>
+          Submit a Report.<br>
+          <span>We'll Review It.</span>
+        </h1>
+
+        <p>
+          Send a report with the relevant information and evidence.
+          Every submission is reviewed before an action is taken.
+        </p>
+
+        <div class="hero-actions">
+          <button
+            class="primary-btn"
+            onclick="document.getElementById('reportCard').scrollIntoView({behavior:'smooth'})"
+          >
+            Submit Report →
+          </button>
+
+          <button
+            class="secondary-btn"
+            onclick="showPage('dashboard')"
+          >
+            View Dashboard
+          </button>
+        </div>
+
+      </div>
+
+
+      <!-- REPORT FORM -->
+      <div id="reportCard" class="report-card">
+
+        <div class="section-label">
+          <span>01</span>
+          NEW REPORT
+        </div>
+
+        <div class="section-heading">
+          <h2>Submit a Report</h2>
+          <p>
+            Provide accurate information so the report can be reviewed.
+          </p>
+        </div>
+
+
+        <form id="reportForm">
+
+          <div class="form-grid">
+
+            <div class="field full">
+              <label for="targetNumber">
+                TARGET NUMBER
+              </label>
+
+              <input
+                id="targetNumber"
+                type="text"
+                placeholder="Example: 509XXXXXXXX"
+                autocomplete="off"
+                required
+              >
+
+              <small>
+                Enter the number associated with the report.
+              </small>
+            </div>
+
+
+            <div class="field">
+
+              <label for="reason">
+                REASON
+              </label>
+
+              <select id="reason" required>
+
+                <option value="">
+                  Select a reason
+                </option>
+
+                <option value="Spam">
+                  Spam
+                </option>
+
+                <option value="Scam">
+                  Scam
+                </option>
+
+                <option value="Harassment">
+                  Harassment
+                </option>
+
+                <option value="Abuse">
+                  Abuse
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <label for="evidence">
+                EVIDENCE
+              </label>
+
+              <input
+                id="evidence"
+                type="text"
+                placeholder="Evidence link or reference"
+              >
+
+            </div>
+
+
+            <div class="field full">
+
+              <label for="details">
+                DETAILS
+              </label>
+
+              <textarea
+                id="details"
+                rows="6"
+                placeholder="Describe the situation and provide relevant details..."
+                required
+              ></textarea>
+
+            </div>
+
+          </div>
+
+
+          <div class="form-footer">
+
+            <p>
+              <span>●</span>
+              Reports are reviewed manually.
+            </p>
+
+            <button
+              type="submit"
+              class="primary-btn"
+            >
+              Submit Report →
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+
+      <!-- INFO CARDS -->
+      <div class="info-grid">
+
+        <div class="info-card">
+          <span class="info-number">01</span>
+          <h3>Submit</h3>
+          <p>
+            Provide the target number, reason and relevant details.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <span class="info-number">02</span>
+          <h3>Review</h3>
+          <p>
+            Your report enters the review queue as Pending.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <span class="info-number">03</span>
+          <h3>Decision</h3>
+          <p>
+            The Owner reviews the report and decides the next action.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page">
+
+      <div class="page-header">
+
+        <div>
+          <span class="eyebrow">MISTER / DASHBOARD</span>
+          <h1>Activity Dashboard</h1>
+          <p>
+            Track your report history and activity.
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <small>TOTAL REPORTS</small>
+          <strong id="totalReports">0</strong>
+          <span>All submitted reports</span>
+        </div>
+
+        <div class="stat-card">
+          <small>PENDING</small>
+          <strong id="pendingReports">0</strong>
+          <span>Waiting for review</span>
+        </div>
+
+        <div class="stat-card">
+          <small>ESCALATED</small>
+          <strong id="escalatedReports">0</strong>
+          <span>Requires attention</span>
+        </div>
+
+        <div class="stat-card">
+          <small>WEEKLY ACTIVITY</small>
+          <strong id="weeklyReports">0</strong>
+          <span>Last 7 days</span>
+        </div>
+
+      </div>
+
+
+      <div class="dashboard-card">
+
+        <div class="card-title">
+          <div>
+            <span class="eyebrow">HISTORY</span>
+            <h2>Report History</h2>
+          </div>
+        </div>
+
+        <div id="reportHistory">
+          <div class="empty-state">
+            No reports submitted yet.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="page">
+
+      <div class="simple-page">
+
+        <span class="eyebrow">MISTER / ABOUT</span>
+
+        <h1>About MISTER</h1>
+
+        <p>
+          MISTER is a report management interface designed to
+          organize submitted reports and provide an owner-controlled
+          review workflow.
+        </p>
+
+        <div class="about-box">
+          <strong>How it works</strong>
+
+          <p>
+            A submitted report starts as Pending. The Owner can review
+            the information and choose whether to Approve, Reject or
+            Escalate the report.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FAQ -->
+    <section id="faq" class="page">
+
+      <div class="simple-page">
+
+        <span class="eyebrow">MISTER / FAQ</span>
+
+        <h1>Frequently Asked Questions</h1>
+
+
+        <div class="faq-list">
+
+          <details open>
+            <summary>
+              What happens after I submit a report?
+            </summary>
+
+            <p>
+              The report is added to the review queue with Pending
+              status.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              Does submitting a report automatically take action?
+            </summary>
+
+            <p>
+              No. A report is reviewed before an action is selected.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              Who decides what happens to a report?
+            </summary>
+
+            <p>
+              The authorized Owner reviews the report and selects
+              Approve, Reject or Escalate.
+            </p>
+          </details>
+
+
+          <details>
+            <summary>
+              Can I track my reports?
+            </summary>
+
+            <p>
+              Yes. The Dashboard shows report history and activity
+              statistics.
+            </p>
+          </details>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BAN TEXTS -->
+    <section id="bantexts" class="page">
+
+      <div class="simple-page">
+
+        <span class="eyebrow">MISTER / BAN TEXTS</span>
+
+        <h1>BAN TEXTS</h1>
+
+        <p>
+          Information and text templates related to moderation
+          workflows can be displayed here.
+        </p>
+
+
+        <div class="text-list">
+
+          <div>
+            <span>01</span>
+            <p>Report received and waiting for review.</p>
+          </div>
+
+          <div>
+            <span>02</span>
+            <p>Report reviewed by the Owner.</p>
+          </div>
+
+          <div>
+            <span>03</span>
+            <p>Report escalated for additional review.</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="page">
+
+      <div class="simple-page">
+
+        <span class="eyebrow">MISTER / CONTACT</span>
+
+        <h1>Contact</h1>
+
+        <p>
+          For questions about a submitted report, contact the
+          authorized MISTER Owner.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- OWNER LOGIN MODAL -->
+    <div id="ownerModal" class="modal">
+
+      <div class="modal-box">
+
+        <button
+          class="modal-close"
+          onclick="closeOwner()"
+        >
+          ×
+        </button>
+
+        <span class="eyebrow">RESTRICTED AREA</span>
+
+        <h2>Owner Access</h2>
+
+        <p>
+          Enter the Owner password to continue.
+        </p>
+
+        <input
+          id="ownerPassword"
+          type="password"
+          placeholder="Owner password"
+          autocomplete="current-password"
+        >
+
+        <button
+          class="primary-btn modal-btn"
+          onclick="ownerLogin()"
+        >
+          Continue →
+        </button>
+
+        <p id="ownerMessage" class="owner-message"></p>
+
+      </div>
+
+    </div>
+
+
+    <!-- OWNER PANEL -->
+    <section id="ownerPanel" class="page">
+
+      <div class="page-header">
+
+        <div>
+          <span class="eyebrow">MISTER / OWNER</span>
+          <h1>Owner Panel</h1>
+          <p>
+            Review and manage submitted reports.
+          </p>
+        </div>
+
+        <button
+          class="secondary-btn"
+          onclick="showPage('home')"
+        >
+          Back to Home
+        </button>
+
+      </div>
+
+
+      <div class="dashboard-card">
+
+        <div id="ownerReports">
+          <div class="empty-state">
+            No reports available.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div>
+      <strong>MISTER</strong>
+      <span>Report Management Platform</span>
+    </div>
+
+    <span>© 2026 MISTER</span>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
